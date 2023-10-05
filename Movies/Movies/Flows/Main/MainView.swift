@@ -10,10 +10,11 @@ import SnapKit
 
 class MainView: UIViewController {
     
-    var viewModel: MainViewModel = MainViewModel()
-    var collectionView: UICollectionView?
+    private var viewModel: MainViewModel = MainViewModel()
+    private var collectionView: UICollectionView?
+    private var searchBar: UISearchBar = UISearchBar()
     
-    var searchBar: UISearchBar = UISearchBar()
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,19 @@ class MainView: UIViewController {
         self.setUpSearchBar()
         self.setUpCollectionView()
     }
-    
+}
+
+// MARK: - Actions
+
+extension MainView {
+    @objc private func sortButtonTapped() {
+        self.setUpSortActionSheet()
+    }
+}
+
+// MARK: - SetUp Methods
+
+extension MainView {
     private func setUpNavigationBar() {
         self.navigationItem.title = "Title"
         self.setUpNavImage()
@@ -81,12 +94,37 @@ class MainView: UIViewController {
         }
     }
     
-    @objc private func sortButtonTapped() {
-        print("Sort button tapped")
-    }
+    private func setUpSortActionSheet() {
+        let actionSheet = UIAlertController(title: "Sort Movies", message: "", preferredStyle: .actionSheet)
+        let action1 = UIAlertAction(title: "Alphabetical", style: .default, handler: { [weak self] _ in
+            self?.viewModel.sortAlphabetical()
+        })
+        let action2 = UIAlertAction(title: "Highest Rated", style: .default, handler: { [weak self] _ in
+            self?.viewModel.sortHighestRated()
+        })
+        let action3 = UIAlertAction(title: "Lowest Rated", style: .default, handler: { [weak self] _ in
+            self?.viewModel.sortLowestRated()
+        })
+        let action4 = UIAlertAction(title: "Oldest to Newest", style: .default, handler: { [weak self] _ in
+            self?.viewModel.sortOldestToNewest()
+        })
+        let action5 = UIAlertAction(title: "Newest to Oldest", style: .default, handler: { [weak self] _ in
+            self?.viewModel.sortNewestToOldest()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(action3)
+        actionSheet.addAction(action4)
+        actionSheet.addAction(action5)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+     }
 }
 
-// MARK: - UISearchBar
+// MARK: - UISearchBar Methods
 
 extension MainView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -94,7 +132,7 @@ extension MainView: UISearchBarDelegate {
     }
 }
 
-// MARK: - UICollectionView
+// MARK: - UICollectionView Methods
 
 extension MainView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
