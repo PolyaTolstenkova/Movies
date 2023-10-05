@@ -7,21 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0ADDC52ACD4B620024F914 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0ADDC42ACD4B620024F914 /* SnapKit */; };
+		6A0ADDC72ACD4B620024F914 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0ADDC62ACD4B620024F914 /* SnapKit-Dynamic */; };
+		6A0ADDCA2ACD6A0A0024F914 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ADDC92ACD6A0A0024F914 /* MovieView.swift */; };
+		6A0ADDCC2ACD6A140024F914 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ADDCB2ACD6A140024F914 /* MovieViewModel.swift */; };
+		6A5262492ACAB6D60057DB79 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5262482ACAB6D60057DB79 /* MainView.swift */; };
+		6A52624B2ACAB6DE0057DB79 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A52624A2ACAB6DE0057DB79 /* MainViewModel.swift */; };
+		6A52624E2ACAB98D0057DB79 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A52624D2ACAB98D0057DB79 /* UINavigationController.swift */; };
+		6A5262512ACAC9500057DB79 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5262502ACAC9500057DB79 /* Movie.swift */; };
 		6AAD64002AC5D986001D3BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD63FF2AC5D986001D3BA3 /* AppDelegate.swift */; };
 		6AAD64022AC5D986001D3BA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD64012AC5D986001D3BA3 /* SceneDelegate.swift */; };
-		6AAD64042AC5D986001D3BA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAD64032AC5D986001D3BA3 /* ViewController.swift */; };
 		6AAD64092AC5D987001D3BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAD64082AC5D987001D3BA3 /* Assets.xcassets */; };
 		6AAD640C2AC5D987001D3BA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AAD640A2AC5D987001D3BA3 /* LaunchScreen.storyboard */; };
+		6AC3C1642ACB42F9001771B6 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3C1632ACB42F9001771B6 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A0ADDC92ACD6A0A0024F914 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		6A0ADDCB2ACD6A140024F914 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		6A5262482ACAB6D60057DB79 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		6A52624A2ACAB6DE0057DB79 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		6A52624D2ACAB98D0057DB79 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		6A5262502ACAC9500057DB79 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		6AAD63FC2AC5D986001D3BA3 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AAD63FF2AC5D986001D3BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AAD64012AC5D986001D3BA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6AAD64032AC5D986001D3BA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6AAD64082AC5D987001D3BA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AAD640B2AC5D987001D3BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AAD640D2AC5D987001D3BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AC3C1632ACB42F9001771B6 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,12 +43,83 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0ADDC52ACD4B620024F914 /* SnapKit in Frameworks */,
+				6A0ADDC72ACD4B620024F914 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A0ADDC82ACD69F10024F914 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				6A0ADDC92ACD6A0A0024F914 /* MovieView.swift */,
+				6A0ADDCB2ACD6A140024F914 /* MovieViewModel.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		6A5262422ACAB66D0057DB79 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				6A5262462ACAB6C20057DB79 /* Main */,
+				6A0ADDC82ACD69F10024F914 /* Movie */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		6A5262432ACAB68E0057DB79 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6AAD63FF2AC5D986001D3BA3 /* AppDelegate.swift */,
+				6AAD64012AC5D986001D3BA3 /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6A5262442ACAB6990057DB79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AAD64082AC5D987001D3BA3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A5262452ACAB6B40057DB79 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				6AAD640A2AC5D987001D3BA3 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		6A5262462ACAB6C20057DB79 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6A5262482ACAB6D60057DB79 /* MainView.swift */,
+				6A52624A2ACAB6DE0057DB79 /* MainViewModel.swift */,
+				6AC3C1622ACB42EC001771B6 /* Components */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6A52624C2ACAB97C0057DB79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6A52624D2ACAB98D0057DB79 /* UINavigationController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6A52624F2ACAC9420057DB79 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6A5262502ACAC9500057DB79 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6AAD63F32AC5D986001D3BA3 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +139,23 @@
 		6AAD63FE2AC5D986001D3BA3 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				6AAD63FF2AC5D986001D3BA3 /* AppDelegate.swift */,
-				6AAD64012AC5D986001D3BA3 /* SceneDelegate.swift */,
-				6AAD64032AC5D986001D3BA3 /* ViewController.swift */,
-				6AAD64082AC5D987001D3BA3 /* Assets.xcassets */,
-				6AAD640A2AC5D987001D3BA3 /* LaunchScreen.storyboard */,
+				6A5262432ACAB68E0057DB79 /* Main */,
+				6A5262422ACAB66D0057DB79 /* Flows */,
+				6A52624F2ACAC9420057DB79 /* Models */,
+				6A52624C2ACAB97C0057DB79 /* Extensions */,
+				6A5262452ACAB6B40057DB79 /* Launch */,
+				6A5262442ACAB6990057DB79 /* Resources */,
 				6AAD640D2AC5D987001D3BA3 /* Info.plist */,
 			);
 			path = Movies;
+			sourceTree = "<group>";
+		};
+		6AC3C1622ACB42EC001771B6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6AC3C1632ACB42F9001771B6 /* MovieCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +174,10 @@
 			dependencies = (
 			);
 			name = Movies;
+			packageProductDependencies = (
+				6A0ADDC42ACD4B620024F914 /* SnapKit */,
+				6A0ADDC62ACD4B620024F914 /* SnapKit-Dynamic */,
+			);
 			productName = Movies;
 			productReference = 6AAD63FC2AC5D986001D3BA3 /* Movies.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +206,9 @@
 				Base,
 			);
 			mainGroup = 6AAD63F32AC5D986001D3BA3;
+			packageReferences = (
+				6A0ADDC32ACD4B620024F914 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 6AAD63FD2AC5D986001D3BA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,7 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AAD64042AC5D986001D3BA3 /* ViewController.swift in Sources */,
+				6AC3C1642ACB42F9001771B6 /* MovieCell.swift in Sources */,
+				6A52624B2ACAB6DE0057DB79 /* MainViewModel.swift in Sources */,
+				6A52624E2ACAB98D0057DB79 /* UINavigationController.swift in Sources */,
+				6A5262512ACAC9500057DB79 /* Movie.swift in Sources */,
+				6A5262492ACAB6D60057DB79 /* MainView.swift in Sources */,
+				6A0ADDCC2ACD6A140024F914 /* MovieViewModel.swift in Sources */,
+				6A0ADDCA2ACD6A0A0024F914 /* MovieView.swift in Sources */,
 				6AAD64002AC5D986001D3BA3 /* AppDelegate.swift in Sources */,
 				6AAD64022AC5D986001D3BA3 /* SceneDelegate.swift in Sources */,
 			);
@@ -351,6 +458,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A0ADDC32ACD4B620024F914 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A0ADDC42ACD4B620024F914 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A0ADDC32ACD4B620024F914 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		6A0ADDC62ACD4B620024F914 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A0ADDC32ACD4B620024F914 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6AAD63F42AC5D986001D3BA3 /* Project object */;
 }
