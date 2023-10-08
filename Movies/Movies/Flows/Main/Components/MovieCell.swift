@@ -40,8 +40,6 @@ class MovieCell: UICollectionViewCell {
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.width.equalTo(UIScreen.main.bounds.width - 40)
-            make.height.equalTo(UIScreen.main.bounds.width - 70)
         }
     }
     

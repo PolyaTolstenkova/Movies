@@ -11,8 +11,49 @@ import SnapKit
 class MainView: UIViewController {
     
     private var viewModel: MainViewModel = MainViewModel()
-    private var collectionView: UICollectionView?
-    private var searchBar: UISearchBar = UISearchBar()
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "MovieCell")
+        
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints({ make in
+            make.bottom.equalToSuperview()
+           make.top.equalTo(150)
+           make.leading.equalTo(15)
+           make.trailing.equalTo(-15)
+        })
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delaysContentTouches = false
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        return collectionView
+    }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        
+        view.insertSubview(searchBar, aboveSubview: collectionView)
+        searchBar.snp.makeConstraints({ make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalTo(50)
+        })
+
+        searchBar.isTranslucent = false
+        searchBar.placeholder = "Search"
+        searchBar.backgroundImage = UIImage()
+
+        searchBar.delegate = self
+
+        return searchBar
+    }()
+    
     
     // MARK: - Lifecycle
 
@@ -20,8 +61,14 @@ class MainView: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.setUpNavigationBar()
-        self.setUpSearchBar()
-        self.setUpCollectionView()
+        searchBar.isHidden = false
+        collectionView.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        searchBar.resignFirstResponder()
     }
 }
 
@@ -55,43 +102,6 @@ extension MainView {
         imageView.addGestureRecognizer(tapGestureRecognizer)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: imageView)
-    }
-    
-    private func setUpSearchBar() {
-        searchBar.searchBarStyle = UISearchBar.Style.default
-        searchBar.placeholder = "Search"
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-        searchBar.backgroundColor = .gray
-        
-        self.view.addSubview(searchBar)
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        searchBar.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
-        }
-
-        searchBar.delegate = self
-    }
-    
-    private func setUpCollectionView() {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 300, height: 200)
-      
-        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: "MovieCell")
-        collectionView?.backgroundColor = UIColor.white
-        if let collectionView = collectionView {
-            view.addSubview(collectionView)
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
-            collectionView.snp.makeConstraints { make in
-                make.leading.trailing.bottom.equalToSuperview()
-                make.top.equalTo(searchBar.snp.bottom).offset(20)
-            }
-            collectionView.dataSource = self
-            collectionView.delegate = self
-        }
     }
     
     private func setUpSortActionSheet() {
@@ -134,14 +144,12 @@ extension MainView: UISearchBarDelegate {
 
 // MARK: - UICollectionView Methods
 
-extension MainView: UICollectionViewDelegate {
+extension MainView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let destinationViewController = MovieView(viewModel: .init(movie: viewModel.mockMovies[indexPath.item]))
-            navigationController?.pushViewController(destinationViewController, animated: true)
-       }
-}
-
-extension MainView: UICollectionViewDataSource {
+        let destinationViewController = MovieView(viewModel: .init(movie: viewModel.mockMovies[indexPath.item]))
+        navigationController?.pushViewController(destinationViewController, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.mockMovies.count
     }
@@ -153,5 +161,20 @@ extension MainView: UICollectionViewDataSource {
         
         return movieCell
     }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 150)
+    }
+    
+    func collectionView(
+          _ collectionView: UICollectionView,
+          layout collectionViewLayout: UICollectionViewLayout,
+          minimumLineSpacingForSectionAt section: Int
+      ) -> CGFloat {
+          return 15
+      }
 }
-
